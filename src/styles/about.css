@@ -1,0 +1,10 @@
+body {
+    font-family: 'Roboto', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Lora', serif;
+  }
+  .bg-white { background-color: #f9fafb; } /* Light gray background for sections */
+.text-gray-800 { color: #374151; } /* Darker gray for professional text */
+.bg-blue-600 { background-color: #2563eb; } /* Softer blue instead of a vibrant one */
+/* about.css */
