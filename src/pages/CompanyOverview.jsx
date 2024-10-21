@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const CompanyOverview = () => (
   <section className="py-24 px-6 md:px-12 bg-gradient-to-br from-blue-50 to-indigo-100">
     <div className="max-w-6xl mx-auto">
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -19,15 +19,21 @@ const CompanyOverview = () => (
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="bg-white p-8 rounded-2xl shadow-xl relative">
-  <FaQuoteLeft className="text-4xl text-blue-200 absolute top-4 left-4 transform -translate-y-1/2" />
-  <p className="mb-6 text-lg text-gray-700 leading-relaxed font-light italic">
-    Founded in 2018, Law Marshal has quickly established itself as a leading BPO center in Indore, M.P., India. We specialize in providing comprehensive inbound and outbound call center services, with a focus on sectors such as banking, insurance, telecom, and e-commerce.
-  </p>
-  <p className="text-lg text-gray-700 leading-relaxed font-light italic">
-    Our commitment to excellence, coupled with our state-of-the-art infrastructure and highly skilled workforce, has allowed us to deliver exceptional results for our clients consistently.
-  </p>
-  <FaQuoteRight className="text-4xl text-blue-200 absolute bottom-4 right-20 " />
-</div>
+            <FaQuoteLeft className="text-4xl text-blue-200 absolute top-4 left-4 transform -translate-y-1/2" />
+            <p className="mb-6 text-lg text-gray-700 leading-relaxed font-light italic">
+              Founded in 2018, Law Marshal has quickly established itself as a
+              leading BPO center in Indore, M.P., India. We specialize in
+              providing comprehensive inbound and outbound call center services,
+              with a focus on sectors such as banking, insurance, telecom, and
+              e-commerce.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed font-light italic">
+              Our commitment to excellence, coupled with our state-of-the-art
+              infrastructure and highly skilled workforce, has allowed us to
+              deliver exceptional results for our clients consistently.
+            </p>
+            <FaQuoteRight className="text-4xl text-blue-200 absolute bottom-4 right-20 " />
+          </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -35,9 +41,9 @@ const CompanyOverview = () => (
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="relative">
-            <img 
-              src="https://picsum.photos/600/400" 
-              alt="Law Marshal Office" 
+            <img
+              src="/webp/office.webp"
+              alt="Law Marshal Office"
               className="rounded-2xl shadow-2xl w-full h-auto z-10 relative"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-indigo-500 opacity-20 rounded-2xl"></div>

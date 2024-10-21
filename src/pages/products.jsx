@@ -202,13 +202,13 @@ const Products = () => {
         <FeaturedProduct
           title="Collections as a Service"
           description="Our Collections as a Service (CaaS) offers end-to-end collections management, blending advanced technology and skilled manual intervention. Automated processes drive efficiency, while expert agents handle complex cases, ensuring faster recovery and improved customer experience."
-          imageSrc="https://images.unsplash.com/photo-1569144157591-c60f3f82f137"
+          imageSrc="/jpg/cas.jpg"
           imageAlt="Collections as a Service"
         />
         <FeaturedProduct
           title="Customer Service Provider"
           description="Our Customer Service Solutions combine automated systems with personalized support to enhance efficiency while building strong customer relationships. We streamline interactions with AI-driven tools, ensuring quick resolutions and fostering lasting customer loyalty."
-          imageSrc="https://images.unsplash.com/photo-1599134842279-fe807d23316e"
+          imageSrc="/jpg/ccp.jpg"
           imageAlt="Customer Service Provider"
           reverse
           lastItem={true}
@@ -256,7 +256,7 @@ const Products = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-4 md:px-12">
+      {/* <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-4 md:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -287,7 +287,7 @@ const Products = () => {
             </Marquee>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Call to Action Section */}
       <CTASection />
