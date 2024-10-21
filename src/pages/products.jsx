@@ -37,9 +37,7 @@ const ProductCard = ({ title, description, icon: Icon }) => {
       <div className="bg-blue-900 rounded-full p-4 w-20 h-20 flex items-center justify-center mb-6">
         <Icon className="w-10 h-10 text-blue-300" />
       </div>
-      <h3 className="text-2xl font-bold mb-4 text-blue-300 font-serif">
-        {title}
-      </h3>
+      <h3 className="text-2xl font-bold mb-4 text-blue-300">{title}</h3>
       <p className="text-gray-400 mb-6 font-light">{description}</p>
       <motion.button
         className="text-blue-300 font-semibold flex items-center group"
@@ -93,7 +91,7 @@ const FeaturedProduct = ({
         >
           <div>
             <div className="mt-6">
-              <h2 className="text-3xl font-bold tracking-tight text-blue-300 font-serif">
+              <h2 className="text-3xl font-bold tracking-tight text-blue-300">
                 {title}
               </h2>
               <p className="mt-4 text-lg text-gray-300 text-justify">
@@ -111,9 +109,9 @@ const FeaturedProduct = ({
             <img
               alt={imageAlt}
               loading="lazy"
-              width={647}
-              height={486}
-              className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+              // width={647}
+              // height={486}
+              className="w-full block mx-auto rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
               style={{ color: "transparent" }}
               src={imageSrc}
             />
@@ -139,8 +137,7 @@ const TechStack = ({ tech }) => (
 const Testimonial = ({ quote, author, company }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg">
     <p className="text-gray-800 italic mb-4">"{quote}"</p>
-    <p className="font-bold text-gray-900">{author}</p>
-    <p className="text-gray-600">{company}</p>
+    <p className="font-bold text-gray-600">{company}</p>
   </div>
 );
 
@@ -168,7 +165,7 @@ const Products = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen font-sans">
+    <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}
       <motion.section
         className="bg-blue-900 text-white py-32 min-h-screen px-4 md:px-12 flex items-center justify-center"
@@ -177,7 +174,7 @@ const Products = () => {
         transition={{ duration: 1 }}
       >
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-8 text-blue-300 font-serif">
+          <h1 className="text-5xl font-bold mb-8 text-blue-300 ">
             Innovative Solutions for Modern Business Challenges
           </h1>
           <p className="text-xl text-gray-300 leading-relaxed mb-8">
@@ -256,7 +253,7 @@ const Products = () => {
       </section>
 
       {/* Testimonials Section */}
-      {/* <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-4 md:px-12">
+      <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-4 md:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -287,7 +284,7 @@ const Products = () => {
             </Marquee>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Call to Action Section */}
       <CTASection />

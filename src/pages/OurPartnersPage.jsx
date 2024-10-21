@@ -103,7 +103,7 @@ const OurPartnersPage = () => {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen text-white font-sans">
+    <div className="bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen text-white">
       {/* Hero Section */}
       <section
         id="home"

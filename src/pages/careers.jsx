@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronUp, Users, TrendingUp, Target, Mail, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import { careersTestimonials } from "../../utils/careers";
 
 const CareersPage = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -27,7 +28,7 @@ const CareersPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center z-50"
       onClick={() => setShowPopup(false)}
     >
       <motion.div
@@ -37,8 +38,10 @@ const CareersPage = () => {
         className="bg-white text-gray-800 p-8 rounded-lg shadow-xl max-w-md w-full mx-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-2xl font-bold text-purple-600">Apply Now</h3>
+        <div className="flex justify-between items-center w-full mb-4">
+          <h3 className="text-2xl font-bold text-center text-purple-600">
+            Apply Now
+          </h3>
           <button
             onClick={() => setShowPopup(false)}
             className="text-gray-500 hover:text-gray-700"
@@ -46,6 +49,7 @@ const CareersPage = () => {
             <X className="w-6 h-6" />
           </button>
         </div>
+
         <p className="mb-4">
           To apply, please send your resume to{" "}
           <span className="font-semibold">careers@lawmarshalbpo.com</span> along
@@ -68,7 +72,7 @@ const CareersPage = () => {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-purple-900 min-h-screen text-white font-sans">
+    <div className="bg-gradient-to-b from-gray-900 to-purple-900 min-h-screen text-white">
       {/* Hero Section */}
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
         <motion.div
@@ -186,26 +190,7 @@ const CareersPage = () => {
           </motion.h2>
           <div className="flex max-h-fit">
             <Marquee speed={25}>
-              {[
-                {
-                  name: "Kirti Patil",
-                  role: "Debt Recovery Specialist",
-                  quote:
-                    "Law Marshal BPO has given me the opportunity to grow my career while being part of a supportive team.",
-                },
-                {
-                  name: "Pankaj Sharma",
-                  role: "Customer Service Representative",
-                  quote:
-                    "The collaborative environment makes coming to work enjoyable and fulfilling.",
-                },
-                {
-                  name: "Rahul Singh",
-                  role: "Data Analyst",
-                  quote:
-                    "I appreciate the training and development opportunities provided by the company.",
-                },
-              ].map((testimonial, index) => (
+              {careersTestimonials.map((testimonial, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
@@ -214,7 +199,7 @@ const CareersPage = () => {
                   className="bg-gray-800 rounded-lg p-8 shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300"
                 >
                   <p className="text-gray-300 mb-6 italic">
-                    "{testimonial.quote}"
+                    &#34;{testimonial.quote}&#34;
                   </p>
                   <p className="font-semibold text-purple-400">
                     {testimonial.name}

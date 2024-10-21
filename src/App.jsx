@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
@@ -11,6 +10,7 @@ import Products from "./pages/products";
 import OurPartnersPage from "./pages/OurPartnersPage";
 import Footer from "./components/home/footer";
 import ScrollToTop from "./ScrollToTop";
+
 function App() {
   return (
     <BrowserRouter>
