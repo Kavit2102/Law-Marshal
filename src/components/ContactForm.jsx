@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaUser, FaEnvelope, FaPhone } from "react-icons/fa"; // Importing icons
 import Pigeon from "./Pigeon"; // Adjust the path based on your folder structure
-import axios from "axios";
+// import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,23 +24,27 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        "http://localhost:4000/api/contact",
-        formData
+    const SERVICE_ID = "service_7o1zx5z";
+    const TEMPLATE_ID = "template_nrtx4ps";
+    const PUBLIC_KEY = "JVJHzXYr2ddUKL2Au";
+
+    // const templateParams = {
+    //   from_name: "James",
+    //   notes: "Check this out!",
+    // };
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
       );
-      console.log("Form submission response:", response.data);
-      alert("Thank you for contacting us!");
-      // setFormData({
-      //   name: "",
-      //   email: "",
-      //   phone: "",
-      //   message: "",
-      // });
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred while submitting the form. Please try again.");
-    }
   };
 
   return (
@@ -51,7 +57,7 @@ const ContactForm = () => {
           </h2>
         </div>
         <div className="bg-gray-800 rounded-lg shadow-lg p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} ref={form} className="space-y-6">
             {/* Name Input */}
             <div className="relative">
               <FaUser className="absolute left-3 top-3 text-gray-400 transition-transform duration-300 ease-in-out transform hover:scale-125" />

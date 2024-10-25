@@ -252,39 +252,46 @@ const Products = () => {
         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl font-bold mb-6 text-white">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Don't just take our word for it. Hear from our satisfied clients
-              who have experienced the Law Marshal BPO difference.
-            </p>
-          </motion.div>
-          <div className="flex">
-            <Marquee speed={25}>
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                >
-                  <Testimonial {...testimonial} />
-                </motion.div>
-              ))}
-            </Marquee>
-          </div>
+        {/* Testimonials Section */}
+<section className="bg-gradient-to-br from-blue-900 to-blue-700 py-24 px-6 md:px-16">
+  <div className="max-w-7xl mx-auto space-y-12">
+    {/* Section Heading */}
+    <motion.div
+      className="text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-4xl font-bold text-white mb-6 md:mb-8">
+        What Our Clients Say
+      </h2>
+      <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+        Don't just take our word for it. Hear from our satisfied clients
+        who have experienced the Law Marshal BPO difference.
+      </p>
+    </motion.div>
+
+    {/* Testimonials Marquee */}
+    <div className="flex justify-center items-center">
+      <Marquee speed={30} gradient={false} className="w-full">
+        <div className="flex space-x-6 md:space-x-10">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              className="bg-white rounded-lg shadow-lg p-6 w-80 md:w-96 mx-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              <Testimonial {...testimonial} />
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </Marquee>
+    </div>
+  </div>
+</section>
+
 
       {/* Call to Action Section */}
       <CTASection />

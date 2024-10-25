@@ -178,39 +178,55 @@ const CareersPage = () => {
       </section>
 
       {/* Employee Testimonials Section */}
-      <section className="py-24 bg-gray-900">
-        <div className="container mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
-          >
-            Employee Stories
-          </motion.h2>
-          <div className="flex max-h-fit">
-            <Marquee speed={25}>
-              {careersTestimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="bg-gray-800 rounded-lg p-8 shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300"
-                >
-                  <p className="text-gray-300 mb-6 italic">
-                    &#34;{testimonial.quote}&#34;
-                  </p>
-                  <p className="font-semibold text-purple-400">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
-                </motion.div>
-              ))}
-            </Marquee>
+<section className="py-24 bg-gradient-to-r from-gray-900 to-black">
+  <div className="container mx-auto px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-5xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+    >
+      Employee Stories
+    </motion.h2>
+
+    {/* Testimonial Content */}
+    <div className="relative">
+      {careersTestimonials?.length > 0 ? (
+        <Marquee
+          speed={25}
+          gradient={false}
+          className="overflow-hidden"
+        >
+          <div className="flex gap-10 px-4">
+            {careersTestimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="bg-gray-800 rounded-lg p-8 shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300 w-96 flex-shrink-0"  // Increased width to w-96
+              >
+                <p className="text-gray-300 mb-6 italic text-lg leading-relaxed">
+                  &#34;{testimonial.quote}&#34;
+                </p>
+                <div className="text-purple-400 font-bold text-xl">
+                  {testimonial.name}
+                </div>
+                <div className="text-gray-500 text-sm">{testimonial.role}</div>
+              </motion.div>
+            ))}
           </div>
+        </Marquee>
+      ) : (
+        <div className="text-center text-gray-400">
+          <p>No employee stories available at the moment. Stay tuned for more!</p>
         </div>
-      </section>
+      )}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Call to Action Section */}
       <section className="py-24 bg-gradient-to-r from-purple-600 to-pink-600 relative overflow-hidden">
