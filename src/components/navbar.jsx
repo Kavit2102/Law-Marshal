@@ -1,12 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NavLinks } from "../../utils/navbar";
 import { motion } from "framer-motion";
 
+const serviceDropdownLinks = [
+  {
+    title: "Our Services",
+    to: "/services",
+    isHighlighted: true,
+  },
+  {
+    title: "Scope of Services",
+    to: "/services/scope-of-services",
+    isSpecial: true,
+  },
+  {
+    title: "Debt Collection",
+    to: "/services/debt-collection",
+  },
+  {
+    title: "Financial Services",
+    to: "/services/financial",
+  },
+  {
+    title: "Data Verification",
+    to: "/services/data-verification",
+  },
+  {
+    title: "Operational Standards",
+    to: "/services/operational-standards",
+  },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowServicesDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full z-[9999] bg-gray-900 text-white shadow-lg transition-all duration-300">
@@ -41,43 +85,100 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden lg:flex lg:items-center lg:space-x-10">
-            {NavLinks.map((link) => (
-              <Link
-                key={link.id}
-                to={link.to}
-                className="text-base font-medium hover:text-yellow-400 transition-colors duration-200"
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
+  {NavLinks.map((link) => (
+    <div
+      key={link.id}
+      className="relative"
+      ref={link.title === "Services" ? dropdownRef : null}
+      onMouseEnter={() => {
+        if (link.title === "Services") setShowServicesDropdown(true);
+      }}
+      // Remove onMouseLeave
+    >
+      <Link
+        to={link.to}
+        className="text-base font-medium hover:text-yellow-400 transition-colors duration-200"
+      >
+        {link.title}
+      </Link>
 
+      {/* Services Dropdown */}
+      {link.title === "Services" && showServicesDropdown && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.2 }}
+          className="absolute top-full left-0 mt-2 w-64 bg-gray-800 rounded-lg shadow-xl py-2"
+        >
+          {serviceDropdownLinks.map((service, index) => (
+            <Link
+              key={index}
+              to={service.to}
+              className={`block px-4 py-2 text-sm transition-colors duration-200 
+                ${service.isHighlighted 
+                  ? 'text-lg font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 hover:from-yellow-500 hover:to-yellow-600'
+                  : service.isSpecial
+                  ? 'text-yellow-400 font-semibold hover:bg-gray-700'
+                  : 'text-gray-200 hover:bg-gray-700'
+                }`}
+            >
+              {service.title}
+            </Link>
+          ))}
+        </motion.div>
+      )}
+    </div>
+  ))}
+</div>
         </nav>
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="absolute top-full left-0 w-full bg-gray-800 text-white shadow-lg rounded-md mt-2 z-[9999]"
-        >
-          <div className="flex flex-col space-y-2 p-4">
-            {NavLinks.map((link) => (
-              <Link
-                key={link.id}
-                to={link.to}
-                onClick={() => setIsOpen(false)}
-                className="text-base font-medium hover:text-yellow-400 transition-colors duration-200"
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      {/* Mobile Dropdown Menu */}
+{isOpen && (
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -20 }}
+    transition={{ duration: 0.3 }}
+    className="absolute top-full left-0 w-full bg-gray-800 text-white shadow-lg rounded-md mt-2 z-[9999]"
+  >
+    <div className="flex flex-col space-y-2 p-4">
+      {NavLinks.map((link) => (
+        <React.Fragment key={link.id}>
+          <Link
+            to={link.to}
+            onClick={() => setIsOpen(false)}
+            className="text-base font-medium hover:text-yellow-400 transition-colors duration-200"
+          >
+            {link.title}
+          </Link>
+          {link.title === "Services" && (
+            <div className="pl-4 space-y-2">
+              {serviceDropdownLinks.map((service, index) => (
+                <Link
+                  key={index}
+                  to={service.to}
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-sm transition-colors duration-200
+                    ${service.isHighlighted 
+                      ? 'text-yellow-500 font-semibold'
+                      : service.isSpecial
+                      ? 'text-yellow-400 font-semibold'
+                      : 'text-gray-300 hover:text-yellow-400'
+                    }`}
+                >
+                  {service.title}
+                </Link>
+              ))}
+            </div>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  </motion.div>
+)}
     </header>
   );
 };
