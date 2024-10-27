@@ -53,7 +53,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col items-center  md:items-start">
+          <div className="flex flex-col items-center md:items-start">
             <div className="mt-[23px] flex items-center">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[75%]">
                 <PhoneIcon />
@@ -92,12 +92,14 @@ const Footer = () => {
                   href="mailto:help@lorem.com"
                   className="font-Inter text-[14px] font-medium text-[#fff]"
                 >
-                  Sub Nerul, Mumbia, India, 123456
+                  10-111, Swadesh Bhawan, Press Complex, A.B. Road, Indore,
+                  Madhya Pradesh 452011, IN
                 </Link>
               </div>
             </div>
           </div>
-          <div className="mt-6 flex w-full flex-col items-center justify-between text-white sm:flex-row md:mt-0 md:max-w-[341px]">
+
+          <div className="mt-6 flex w-full flex-col items-center justify-between text-white sm:flex-row md:mt-0 md:max-w-[201px]">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
               <p className="text-deutziawhite font-inter text-[18px] font-medium">
                 Download the app
@@ -131,6 +133,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <hr className="mt-[30px] text-white" />
         <div className="flex items-center justify-center pb-8 pt-[9px] md:py-8">
           <p className="text-[12px] font-normal text-white md:text-[14px]">

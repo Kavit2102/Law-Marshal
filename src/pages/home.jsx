@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Marque from "../components/home/marque";
+import ClientsSection from "../components/home/clientsSection";
 import Features from "../components/home/features";
 import EfficientDebtCollection from "../components/home/efficientDebtCollection";
 import Industries from "../components/home/industries";
@@ -9,7 +9,7 @@ import Industries from "../components/home/industries";
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const Home = () => {
@@ -29,9 +29,9 @@ const Home = () => {
           loop
           muted
         ></video>
-        
+
         <div className="container block px-6 md:px-12 md:flex w-screen justify-between items-center py-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -100,15 +100,6 @@ const Home = () => {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <Marque />
-      </motion.div>
-
-      <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -133,6 +124,15 @@ const Home = () => {
         viewport={{ once: true }}
       >
         <EfficientDebtCollection />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <ClientsSection />
       </motion.div>
     </section>
   );

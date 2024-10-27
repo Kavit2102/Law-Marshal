@@ -14,7 +14,7 @@ const DashboardCard = ({ icon: Icon, title, description, index }) => {
         hoveredCard === index ? "scale-105 shadow-xl" : ""
       }`}
       onMouseEnter={() => setHoveredCard(index)}
-      onMouseLeave ={() => setHoveredCard(null)}
+      onMouseLeave={() => setHoveredCard(null)}
     >
       <div className="bg-[#63e] rounded-full mb-4 p-5">
         <Icon className="w-20 h-20 text-white" />
