@@ -92,7 +92,7 @@ const Footer = () => {
                   href="mailto:help@lorem.com"
                   className="font-Inter text-[14px] font-medium text-[#fff]"
                 >
-                  Sub Nerul, Mumbia, India, 123456
+                  110-111, Swadesh Bhawan, Press Complex, A.B. Road, Indore, Madhya Pradesh 452011, IN
                 </Link>
               </div>
             </div>
