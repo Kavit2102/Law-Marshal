@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Code, Server, Cloud, Shield } from "lucide-react";
+import { Code, Server, Cloud, Shield ,PhoneCall, Check, Database } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import ProductCarousel from "./productcarousel.jsx";
@@ -124,13 +124,17 @@ const FeaturedProduct = ({
 
 const TechStack = ({ tech }) => (
   <motion.div
-    className="bg-black bg-opacity-70 p-6 rounded-lg shadow-neon m-4 w-64 backdrop-blur-sm"
+    className="bg-black bg-opacity-70 p-6 rounded-lg shadow-neon m-4 w-64 h-48 backdrop-blur-sm" // Added fixed height h-48
     whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FD1C5" }}
     transition={{ duration: 0.3 }}
   >
-    <div className="flex items-center justify-center mb-4">{tech.icon}</div>
-    <h4 className="font-bold text-cyan-400 mb-2">{tech.name}</h4>
-    <p className="text-sm text-gray-300">{tech.description}</p>
+    <div className="flex flex-col h-full"> {/* Added flex container with full height */}
+      <div className="flex items-center justify-center mb-4">{tech.icon}</div>
+      <div className="flex-1 flex flex-col"> {/* Added flex-1 to take remaining space */}
+        <h4 className="font-bold text-cyan-400 mb-2">{tech.name}</h4>
+        <p className="text-sm text-gray-300">{tech.description}</p>
+      </div>
+    </div>
   </motion.div>
 );
 
@@ -159,7 +163,27 @@ const Products = () => {
       description: "Robust protection for sensitive data and operations",
     },
   ];
-
+  
+  const techFeatures = [
+    {
+      id: 3,
+      name: "VICI Dialer Integration",
+      description: "Advanced predictive dialing system improving contact rates by 60%",
+      icon: <PhoneCall className="w-12 h-12 text-cyan-400" />,
+    },
+    {
+      id: 4,
+      name: "Data Analytics",
+      description: "Real-time tracking and analysis of collection performance",
+      icon: <Database className="w-12 h-12 text-cyan-400" />,
+    },
+    {
+      id: 5,
+      name: "Quality Assurance",
+      description: "100% call monitoring and quality assessment",
+      icon: <Check className="w-12 h-12 text-cyan-400" />,
+    },
+  ];
   const scrollToProducts = () => {
     productsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -217,40 +241,67 @@ const Products = () => {
 
       {/* Technology Stack Section */}
       <section className="bg-gradient-to-r from-gray-900 to-blue-900 py-20 px-4 md:px-12 overflow-hidden relative">
-        <div className="absolute inset-0 z-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/path/to/circuit-pattern.svg')] bg-repeat"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-transparent to-gray-900"></div>
-        </div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl font-bold mb-6 text-cyan-400">
-              Our Technology Stack
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              We leverage cutting-edge technology to deliver innovative
-              solutions that keep you ahead in the digital age.
-            </p>
-          </motion.div>
-          <div className="flex flex-wrap justify-center">
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={tech.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <TechStack tech={tech} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
-      </section>
+  <div className="absolute inset-0 z-0 opacity-10">
+    <div className="absolute inset-0 bg-[url('/path/to/circuit-pattern.svg')] bg-repeat"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-transparent to-gray-900"></div>
+  </div>
+  <div className="max-w-6xl mx-auto relative z-10">
+    <motion.div
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-4xl font-bold mb-6 text-cyan-400">
+        Our Technology Stack
+      </h2>
+      <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        We leverage cutting-edge technology to deliver innovative
+        solutions that keep you ahead in the digital age.
+      </p>
+    </motion.div>
+    
+    {/* Original Tech Stack */}
+    <div className="flex flex-wrap justify-center mb-20">
+      {techStack.map((tech, index) => (
+        <motion.div
+          key={tech.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+        >
+          <TechStack tech={tech} />
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Enhanced Recovery Features */}
+    <motion.div
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-4xl font-bold mb-6 text-cyan-400">
+        Enhanced Recovery Through Technology
+      </h2>
+    </motion.div>
+    
+    <div className="flex flex-wrap justify-center">
+      {techFeatures.map((tech, index) => (
+        <motion.div
+          key={tech.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+        >
+          <TechStack tech={tech} />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+  <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
+</section>
 
         {/* Testimonials Section */}
 <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-24 px-6 md:px-16">

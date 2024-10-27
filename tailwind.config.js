@@ -6,6 +6,15 @@ export default {
   ],
   theme: {
     extend: { 
+
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Clash Display', 'sans-serif'], 
+      },
+      height: {
+        '1200': '1200px',
+        '1400': '1400px',
+      },
       animation: {
         'pulse-slow': 'pulse-slow 10s infinite',
       },
