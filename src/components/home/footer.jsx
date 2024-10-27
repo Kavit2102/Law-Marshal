@@ -97,7 +97,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="mt-6 flex w-full flex-col items-center justify-between text-white sm:flex-row md:mt-0 md:max-w-[341px]">
+          <div className="mt-6 flex w-full flex-col items-center justify-between text-white sm:flex-row md:mt-0 md:max-w-[201px]">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
               <p className="text-deutziawhite font-inter text-[18px] font-medium">
                 Download the app
