@@ -15,7 +15,7 @@ const ClientsSection = () => {
           {clients.map((client, index) => (
             <motion.div
               key={client.id}
-              className={`mx-10 text-black ${
+              className={`mx-10 text-black md:${
                 index === 4 || index === 5 ? `col-span-2 my-5` : `col-span-1`
               }`}
               initial={{ scale: 0.8 }}

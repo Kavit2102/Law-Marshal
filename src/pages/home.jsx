@@ -42,7 +42,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="leading-loose"
+                className="leading-tight"
               >
                 India's Leading Technology Solution
               </motion.span>
@@ -50,6 +50,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
+                className="leading-tight"
               >
                 for Enhanced Collections
               </motion.span>
@@ -57,6 +58,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
+                className="leading-tight"
               >
                 and Customer Service
               </motion.span>

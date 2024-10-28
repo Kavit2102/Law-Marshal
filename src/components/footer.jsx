@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <div className="bg-black pt-16">
       <div className="w-full px-4 xl:px-0">
-        <div className="flex flex-col justify-between sm:px-[18px] items-center md:flex-row md:px-10">
+        <div className="flex flex-col justify-between sm:px-[18px] items-center lg:flex-row md:px-10">
           <div className="w-full md:w-[516px] flex flex-col items-center">
             <p className="text-[18px] font-medium text-white"></p>
             <h1 className="text-white font-extrabold flex flex-col md:flex-row items-center gap-2">
@@ -53,7 +53,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col items-center md:items-start">
+          <div className="my-10 flex flex-col items-center lg:items-start">
             <div className="mt-[23px] flex items-center">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[75%]">
                 <PhoneIcon />
@@ -62,7 +62,7 @@ const Footer = () => {
                 <Link
                   to={"/"}
                   href="tel:+911800123444"
-                  className="font-Inter text-[14px] font-medium text-white"
+                  className="font-Inter text-[9px] md:text-[14px] font-medium text-white"
                 >
                   +91 9407354276
                 </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
                 <Link
                   to={"/"}
                   href="mailto:help@lorem.com"
-                  className="font-Inter text-[14px] font-medium text-[#fff]"
+                  className="font-Inter text-[9px] md:text-[14px] font-medium text-[#fff]"
                 >
                   admin@lawmarshal.in &#44; hr_admin@lawmarshal.in
                 </Link>
@@ -88,12 +88,11 @@ const Footer = () => {
               </div>
               <div className="ml-[18px]">
                 <Link
-                  to={"/"}
-                  href="mailto:help@lorem.com"
-                  className="font-Inter text-[14px] font-medium text-[#fff]"
+                  to={"/contact"}
+                  className="font-Inter text-[9px] md:text-[14px] font-medium text-[#fff]"
                 >
-                  10-111, Swadesh Bhawan, Press Complex, A.B. Road, Indore,
-                  Madhya Pradesh 452011, IN
+                  10-111, Swadesh Bhawan, Press Complex, A.B Road, Indore,
+                  Madhya Pradesh
                 </Link>
               </div>
             </div>

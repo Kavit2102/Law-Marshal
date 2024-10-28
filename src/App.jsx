@@ -8,7 +8,7 @@ import Contact from "./pages/contact";
 import Careers from "./pages/careers";
 import Products from "./pages/products";
 import OurPartnersPage from "./pages/OurPartnersPage";
-import Footer from "./components/home/footer";
+import Footer from "./components/footer";
 import ScrollToTop from "./ScrollToTop";
 
 function App() {

@@ -42,9 +42,9 @@ const CompanyOverview = () => (
         >
           <div className="relative">
             <img
-              src="/webp/office.webp"
+              src="/jpg/office.jpg"
               alt="Law Marshal Office"
-              className="rounded-2xl shadow-2xl w-full h-auto z-10 relative"
+              className="rounded-2xl shadow-2xl z-10 relative"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-indigo-500 opacity-20 rounded-2xl"></div>
             <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full z-0"></div>
