@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <div className="bg-black pt-16">
       <div className="w-full px-4 xl:px-0">
-        <div className="flex flex-col justify-between sm:px-[18px] items-center lg:flex-row md:px-10">
+        <div className="flex flex-col w-full justify-between sm:px-[18px] items-center lg:flex-row md:px-10">
           <div className="w-full md:w-[516px] flex flex-col items-center">
             <p className="text-[18px] font-medium text-white"></p>
             <h1 className="text-white font-extrabold flex flex-col md:flex-row items-center gap-2">
@@ -53,10 +53,10 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="my-10 flex flex-col items-center lg:items-start">
+          <div className="my-10 flex flex-col items-center md:items-start">
             <div className="mt-[23px] flex items-center">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[75%]">
-                <PhoneIcon />
+                <PhoneIcon className="h-4 md:h-auto" />
               </div>
               <div className="ml-[18px]">
                 <Link
@@ -70,7 +70,7 @@ const Footer = () => {
             </div>
             <div className="mt-[23px] flex items-center">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[75%]">
-                <MailIcon />
+                <MailIcon className="h-4 md:h-auto" />
               </div>
               <div className="ml-[18px]">
                 <Link
@@ -78,27 +78,27 @@ const Footer = () => {
                   href="mailto:help@lorem.com"
                   className="font-Inter text-[9px] md:text-[14px] font-medium text-[#fff]"
                 >
-                  admin@lawmarshal.in &#44; hr_admin@lawmarshal.in
+                  admin@lawmarshal.in
                 </Link>
               </div>
             </div>
             <div className="mt-[23px] flex items-center">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[75%]">
-                <MapPin />
+                <MapPin className="h-4 md:h-auto" />
               </div>
               <div className="ml-[18px]">
                 <Link
                   to={"/contact"}
                   className="font-Inter text-[9px] md:text-[14px] font-medium text-[#fff]"
                 >
-                  10-111, Swadesh Bhawan, Press Complex, A.B Road, Indore,
+                  10-111, Swadesh Bhawan, Press Complex, A.B. Road, Indore,
                   Madhya Pradesh
                 </Link>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 flex w-full flex-col items-center justify-between text-white sm:flex-row md:mt-0 md:max-w-[201px]">
+          <div className="my-10 flex w-full flex-col items-center justify-between text-white sm:flex-row md:mt-0 md:max-w-[201px]">
             <div className="mt-6 flex flex-col gap-4 sm:mt-0">
               <p className="text-deutziawhite font-inter text-[18px] font-medium">
                 Download the app
@@ -132,7 +132,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         <hr className="mt-[30px] text-white" />
         <div className="flex items-center justify-center pb-8 pt-[9px] md:py-8">
           <p className="text-[12px] font-normal text-white md:text-[14px]">

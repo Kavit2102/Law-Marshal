@@ -12,7 +12,9 @@ import {
   Server,
   ChevronDown,
   Shield,
+  HandHelping,
   CheckCircle,
+  Briefcase
 } from "lucide-react";
 
 // Import images
@@ -36,6 +38,34 @@ const ServicesPage = () => {
       controls.start("visible");
     }
   }, [controls, inView]);
+
+  const serviceCategories = [
+    {
+      title: "Debt Collection",
+      path: "/services/debt-collection",
+      icon: PhoneCall,
+    },
+    {
+      title: "Financial Services",
+      path: "/services/financial",
+      icon: Briefcase,
+    },
+    {
+      title: "Data Verification",
+      path: "/services/data-verification",
+      icon: Shield, // You can import Shield from lucide-react
+    },
+    {
+      title: "Operational Standards",
+      path: "/services/operational-standards",
+      icon: Server, // You can import Server from lucide-react
+    },
+    {
+      title: "Scope of Services",
+      path: "/services/scope-of-services",
+      icon: HandHelping,
+    },
+  ];
 
   const services = [
     {
@@ -113,11 +143,7 @@ const ServicesPage = () => {
           <div className="absolute inset-0 bg-blue-900 opacity-50"></div>
           <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
-
-          {/* Subtle radial gradient overlay */}
           <div className="absolute inset-0 bg-radial-at-t from-blue-500/20 via-transparent to-transparent opacity-40"></div>
-
-          {/* Decorative subtle shapes */}
           <div className="absolute top-20 left-10 w-48 h-48 bg-blue-600 rounded-full opacity-30 blur-2xl animate-pulse-slow"></div>
           <div className="absolute bottom-32 right-16 w-72 h-72 bg-purple-600 rounded-full opacity-20 blur-3xl animate-pulse-slow"></div>
         </div>
@@ -137,21 +163,67 @@ const ServicesPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white"
+            className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white"
           >
-            Innovative debt collection solutions tailored for your business
-            success
+            Comprehensive solutions tailored for your business success
           </motion.p>
 
-          <motion.a
-            href="#services"
+         {/* Service Category Navigation */}
+<div className="flex flex-col items-center gap-8 mb-8">
+  {/* Regular Service Categories */}
+  <div className="flex flex-wrap justify-center gap-6">
+    {serviceCategories
+      .filter(category => category.title !== "Scope of Services")
+      .map((category, index) => (
+        <Link 
+          key={index}
+          to={category.path}
+          className="group relative"
+        >
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300"
+            className="flex items-center gap-3 bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full hover:bg-white/20 transition duration-300"
           >
-            Explore Our Services
-            <ChevronDown className="ml-2" size={20} />
-          </motion.a>
+            <category.icon className="w-5 h-5" />
+            <span>{category.title}</span>
+          </motion.div>
+        </Link>
+    ))}
+  </div>
+
+  {/* Scope of Services Button (Enlarged and Separated) */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2 }}
+  >
+    <Link 
+      to="/services/scope-of-services"
+      className="group relative"
+    >
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 px-8 py-4 rounded-full shadow-lg shadow-orange-500/25 transition duration-300 text-xl font-bold"
+      >
+        <HandHelping className="w-6 h-6" />
+        <span>Scope of Services</span>
+      </motion.div>
+    </Link>
+  </motion.div>
+
+  {/* Original Explore Our Services Button */}
+  <motion.a
+    href="#services"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300"
+  >
+    Explore Our Services
+    <ChevronDown className="ml-2" size={20} />
+  </motion.a>
+</div>
         </div>
       </section>
 
@@ -317,7 +389,7 @@ const ServicesPage = () => {
           </Link>
         </div>
       </section>
-      {/* ... (call to action section code remains unchanged) ... */}
+  
     </div>
   );
 };

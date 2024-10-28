@@ -18,7 +18,7 @@ const EfficientDebtCollection = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 text-black">
+    <div className="py-32 px-6 md:px-12 rounded-xl shadow-lg text-black">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,10 +34,11 @@ const EfficientDebtCollection = () => {
         transition={{ duration: 0.8 }}
         className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 animate-fade-in-up delay-300"
       >
-        Our BPO plays a crucial role by streamlining debt collections, making
-        the process quick, simple, and compassionate through:
+        Our BPO plays a crucial role by streamlining debt collections, making the
+        process quick, simple, and compassionate through:
       </motion.p>
 
+    
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {features.map((item, index) => (
           <motion.div
@@ -61,7 +62,7 @@ const EfficientDebtCollection = () => {
               }`}</h3>
             </div>
             <p
-              className={`text-sm sm:text-base text-gray-600 transition-all duration-300 ${
+ className={`text-sm sm:text-base text-gray-600 transition-all duration-300 ${
                 hoveredCard === index ? "" : ""
               }`}
             >
@@ -70,7 +71,7 @@ const EfficientDebtCollection = () => {
           </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
