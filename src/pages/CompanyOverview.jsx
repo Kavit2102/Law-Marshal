@@ -18,22 +18,16 @@ const CompanyOverview = () => (
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="bg-white p-8 rounded-2xl shadow-xl relative">
-            <FaQuoteLeft className="text-4xl text-blue-200 absolute top-4 left-4 transform -translate-y-1/2" />
-            <p className="mb-6 text-lg text-gray-700 leading-relaxed font-light italic">
-              Founded in 2018, Law Marshal has quickly established itself as a
-              leading BPO center in Indore, M.P., India. We specialize in
-              providing comprehensive inbound and outbound call center services,
-              with a focus on sectors such as banking, insurance, telecom, and
-              e-commerce.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed font-light italic">
-              Our commitment to excellence, coupled with our state-of-the-art
-              infrastructure and highly skilled workforce, has allowed us to
-              deliver exceptional results for our clients consistently.
-            </p>
-            <FaQuoteRight className="text-4xl text-blue-200 absolute bottom-4 right-20 " />
-          </div>
+         <div className="bg-white p-8 rounded-2xl shadow-xl relative">
+    <FaQuoteLeft className="text-4xl text-blue-200 absolute top-4 left-4 transform -translate-y-1/2" />
+    <p className="mb-6 text-lg text-gray-700 leading-relaxed font-light italic">
+        Founded in 2018, Law Marshal has rapidly emerged as a premier Business Process Outsourcing (BPO) and Contact Center headquartered in Indore, Madhya Pradesh, India. We specialize in delivering comprehensive inbound and outbound call center solutions, catering to a wide range of sectors including banking, insurance, telecom, and e-commerce.
+    </p>
+    <p className="text-lg text-gray-700 leading-relaxed font-light italic">
+        With our state-of-the-art infrastructure, advanced technologies, and a highly skilled workforce, we ensure exceptional service quality for our clients. Our unwavering commitment to excellence and innovation has consistently enabled us to deliver outstanding results, positioning Law Marshal as a trusted partner for businesses seeking reliable customer engagement and operational support.
+    </p>
+    <FaQuoteRight className="text-4xl text-blue-200 absolute bottom-4 right-4 transform translate-y-1/2" />
+</div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
