@@ -3,28 +3,15 @@ import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
-  PhoneCall,
-  Search,
-  Phone,
-  Handshake,
-  Scale,
-  Book,
+  Briefcase,
+  ArrowUpRight,
   Server,
-  ChevronDown,
   Shield,
-  HandHelping,
   CheckCircle,
-  Briefcase
+  LineChart,
+  Building,
+  FileCheck,
 } from "lucide-react";
-
-// Import images
-import debtRecoveryImg from "/jpg/debtRecovery.jpg";
-import legalServicesImg from "/jpg/LegalServices.jpg";
-import outboundCallsImg from "/jpg/outbound calls.jpg";
-import paymentNegotiationImg from "/jpg/paymentNegosiation.jpg";
-import skipTracingImg from "/jpg/SkipTracing.jpg";
-import debtorEducationImg from "/jpg/DebtorEducation.jpg";
-import TechnologyandCompliance from "/jpg/TechnologyandCompliance.jpg";
 
 const ServicesPage = () => {
   const controls = useAnimation();
@@ -39,357 +26,174 @@ const ServicesPage = () => {
     }
   }, [controls, inView]);
 
-  const serviceCategories = [
+  const mainCategories = [
     {
-      title: "Debt Collection",
-      path: "/services/debt-collection",
-      icon: PhoneCall,
-    },
-    {
-      title: "Financial Services",
-      path: "/services/financial",
+      title: "Financial Solutions",
+      description:
+        "Comprehensive financial services infrastructure and management systems.",
       icon: Briefcase,
+      path: "/services/financial",
+      features: ["Financial Framework", "Loan Products", "Banking Services"],
+      color: "from-blue-500 to-blue-700",
     },
     {
-      title: "Data Verification",
-      path: "/services/data-verification",
-      icon: Shield, // You can import Shield from lucide-react
+      title: "Recovery & Collections",
+      description: "Expert debt recovery and collection management services.",
+      icon: LineChart,
+      path: "/services/recovery",
+      features: ["Debt Recovery", "Delinquency Management", "Skip Tracing"],
+      color: "from-purple-500 to-purple-700",
     },
     {
-      title: "Operational Standards",
-      path: "/services/operational-standards",
-      icon: Server, // You can import Server from lucide-react
+      title: "Verification & Compliance",
+      description:
+        "Advanced data verification and regulatory compliance solutions.",
+      icon: Shield,
+      path: "/services/verification",
+      features: ["Credit Processing", "Data Authentication", "Compliance Management"],
+      color: "from-green-500 to-green-700",
     },
     {
-      title: "Scope of Services",
-      path: "/services/scope-of-services",
-      icon: HandHelping,
+      title: "Operational Excellence",
+      description: "State-of-the-art infrastructure and operational standards.",
+      icon: Server,
+      path: "/services/operational",
+      features: ["Technology Infrastructure", "Quality Assurance", "Security Protocols"],
+      color: "from-orange-500 to-orange-700",
     },
   ];
-
-  const services = [
-    {
-      icon: PhoneCall,
-      title: "Debt Recovery",
-      description:
-        "We specialize in recovering overdue debts from individuals and businesses. Using advanced techniques and negotiation strategies, we ensure timely payments for our clients.",
-      image: debtRecoveryImg,
-    },
-    {
-      icon: Search,
-      title: "Skip Tracing",
-      description:
-        "Our skip tracing services help locate debtors who have moved or changed their contact information, ensuring no debt is left uncollected.",
-      image: skipTracingImg,
-    },
-    {
-      icon: Phone,
-      title: "Outbound Calls",
-      description:
-        "We engage in outbound calling to remind debtors of their payments, discuss settlement options, and provide customer support.",
-      image: outboundCallsImg,
-    },
-    {
-      icon: Handshake,
-      title: "Payment Negotiation",
-      description:
-        "Our trained professionals are skilled in negotiating payment plans and settlements on behalf of our clients to ensure smooth debt resolution.",
-      image: paymentNegotiationImg,
-    },
-    {
-      icon: Scale,
-      title: "Legal Services",
-      description:
-        "We work with a network of legal professionals to initiate legal proceedings when necessary, ensuring compliance and swift debt recovery.",
-      image: legalServicesImg,
-    },
-    {
-      icon: Book,
-      title: "Debtor Education",
-      description:
-        "We provide educational resources and guidance to debtors, helping them understand their financial responsibilities and improve debt management.",
-      image: debtorEducationImg,
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-      },
-    },
-  };
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-blue-900 text-white min-h-screen">
+    <div className="bg-gradient-to-b from-gray-900 to-blue-900 min-h-screen text-white font-sans">
       {/* Hero Section */}
-      <section className="relative flex items-center justify-center min-h-screen py-32 px-6 md:px-12 overflow-hidden">
-        {/* Background Layer */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-blue-900 opacity-50"></div>
-          <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
-          <div className="absolute inset-0 bg-radial-at-t from-blue-500/20 via-transparent to-transparent opacity-40"></div>
-          <div className="absolute top-20 left-10 w-48 h-48 bg-blue-600 rounded-full opacity-30 blur-2xl animate-pulse-slow"></div>
-          <div className="absolute bottom-32 right-16 w-72 h-72 bg-purple-600 rounded-full opacity-20 blur-3xl animate-pulse-slow"></div>
-        </div>
-
-        {/* Content */}
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6 text-white"
-          >
-            Our Services
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white"
-          >
-            Comprehensive solutions tailored for your business success
-          </motion.p>
-
-         {/* Service Category Navigation */}
-<div className="flex flex-col items-center gap-8 mb-8">
-  {/* Regular Service Categories */}
-  <div className="flex flex-wrap justify-center gap-6">
-    {serviceCategories
-      .filter(category => category.title !== "Scope of Services")
-      .map((category, index) => (
-        <Link 
-          key={index}
-          to={category.path}
-          className="group relative"
-        >
+      <section className="relative py-28 px-8">
+        <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-10" />
+        <div className="max-w-7xl mx-auto text-center relative">
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full hover:bg-white/20 transition duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <category.icon className="w-5 h-5" />
-            <span>{category.title}</span>
+            <h1 className="text-6xl md:text-7xl font-bold mb-8">
+              Comprehensive Business Solutions
+            </h1>
+            <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Discover our range of specialized services designed to enhance your business operations and drive sustainable growth.
+            </p>
           </motion.div>
-        </Link>
-    ))}
-  </div>
 
-  {/* Scope of Services Button (Enlarged and Separated) */}
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.2 }}
-  >
-    <Link 
-      to="/services/scope-of-services"
-      className="group relative"
-    >
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 px-8 py-4 rounded-full shadow-lg shadow-orange-500/25 transition duration-300 text-xl font-bold"
-      >
-        <HandHelping className="w-6 h-6" />
-        <span>Scope of Services</span>
-      </motion.div>
-    </Link>
-  </motion.div>
-
-  {/* Original Explore Our Services Button */}
-  <motion.a
-    href="#services"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300"
-  >
-    Explore Our Services
-    <ChevronDown className="ml-2" size={20} />
-  </motion.a>
-</div>
-        </div>
-      </section>
-
-      {/* Services Overview Section */}
-      <section
-        id="services"
-        className="relative py-20 px-6 md:px-12 bg-gray-900 text-white"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-6 text-center"
-          >
-            What We Offer
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl mb-12 text-center max-w-3xl mx-auto"
-          >
-            At Law Marshal BPO, we offer a wide range of business process
-            outsourcing solutions to help your organization operate more
-            efficiently. Our team of experts provides end-to-end services across
-            multiple sectors, ensuring optimal performance and customer
-            satisfaction.
-          </motion.p>
-
-          {/* Vertical Scrolling Section */}
-          <div className="space-y-16">
-            {services.map((service, index) => (
+          {/* Service Categories Grid */}
+          <div className="grid md:grid-cols-2 gap-10 mt-16">
+            {mainCategories.map((category, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8 }}
-                className={`flex flex-col md:flex-row items-center ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                } gap-8`}
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
               >
-                <div className="w-full md:w-1/2 flex-shrink-0">
-                  <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-lg flex flex-col items-center justify-center text-center">
-                    <service.icon className="text-blue-400 mb-4" size={40} />
-                    <h3 className="text-2xl font-semibold mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-300">{service.description}</p>
+                <Link to={category.path}>
+                  <div
+                    className={`bg-gradient-to-br ${category.color} p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500`}
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <category.icon className="w-10 h-10 text-white" />
+                      <ArrowUpRight className="w-6 h-6 text-white/80" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-4">{category.title}</h3>
+                    <p className="text-gray-200 mb-6">{category.description}</p>
+                    <div className="border-t border-white/20 pt-4">
+                      <ul className="space-y-2">
+                        {category.features.map((feature) => (
+                          <li key={feature} className="flex items-center text-white/90">
+                            <CheckCircle className="w-5 h-5 mr-2 text-blue-300" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-
-                <div className="w-full md:w-1/2 flex-shrink-0">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-64 object-cover rounded-lg shadow-lg"
-                  />
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technology and Compliance Section */}
-      <section
-        id="technology"
-        className="py-20 px-6 md:px-0 relative overflow-hidden" // Changed to md:px-0 to eliminate side padding
-      >
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gray-900 opacity-75"></div>
-          <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center"></div>
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+      {/* Why Choose Us Section */}
+      <section className="py-24 px-8 bg-gray-800/70 backdrop-blur-lg">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-6 text-center"
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            Technology & Compliance
-          </motion.h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <p className="text-xl text-justify mb-6">
-                We leverage advanced technology, including automated dialing
-                systems and secure CRM software, to optimize efficiency and
-                performance. Compliance is our top priority, and we strictly
-                follow regulatory guidelines to ensure ethical debt collection
-                practices.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-center">
-                  <Server className="text-blue-400 mr-4" size={24} />
-                  <span>State-of-the-art infrastructure</span>
-                </li>
-                <li className="flex items-center">
-                  <Shield className="text-blue-400 mr-4" size={24} />
-                  <span>Robust data security measures</span>
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="text-blue-400 mr-4" size={24} />
-                  <span>Adherence to industry regulations</span>
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex justify-center items-center "
-              style={{ width: "100%", height: "420px", maxWidth: "500px" }}
-            >
-              <img
-                src={TechnologyandCompliance}
-                alt="Technology"
-                className="rounded-lg   "
-                style={{ width: "100%", height: "100%" }}
-              />
-              <div className="absolute inset-0 bg-blue-500 opacity-20 rounded-lg"></div>
-            </motion.div>
+            <h2 className="text-5xl font-bold mb-6">Why Choose Our Services</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              We combine industry expertise with cutting-edge technology to deliver exceptional results.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-12 mt-16">
+            {[
+              {
+                icon: Building,
+                title: "Industry Expertise",
+                description: "Over decades of experience serving diverse sectors.",
+              },
+              {
+                icon: Shield,
+                title: "Security First",
+                description: "Advanced security protocols and compliance measures.",
+              },
+              {
+                icon: FileCheck,
+                title: "Quality Assured",
+                description: "Rigorous quality control and performance monitoring.",
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                className="bg-white/10 p-8 rounded-2xl shadow-lg"
+              >
+                <feature.icon className="w-12 h-12 text-blue-400 mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section
-        id="contact"
-        className="py-20 px-6 md:px-12 bg-gradient-to-r from-blue-600 to-purple-600"
-      >
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+      {/* CTA Section */}
+      <section className="py-24 px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-6"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 p-12 rounded-2xl shadow-xl"
           >
-            Looking for a Reliable BPO Partner?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl mb-8 max-w-3xl mx-auto"
-          >
-            Get in touch with us today to explore how our services can drive
-            growth and efficiency for your business.
-          </motion.p>
-          <Link to="/contact">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 font-semibold"
-            >
-              Contact Us
-            </motion.button>
-          </Link>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-lg md:text-xl mb-8">
+              Contact us today to discuss how we can help optimize your operations.
+            </p>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"
+              >
+                Schedule a Consultation
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
-  
     </div>
   );
 };

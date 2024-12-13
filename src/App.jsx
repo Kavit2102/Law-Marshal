@@ -15,7 +15,9 @@ import Products from "./pages/products";
 import OurPartnersPage from "./pages/OurPartnersPage";
 import Footer from "./components/footer";
 import ScrollToTop from "./ScrollToTop";
-
+import RecoveryCollectionsPage from "./pages/RecoveryCollectionsPage";
+import VerificationCompliancePage from "./pages/VerificationCompliancePage";
+import OperationalExcellencePage from "./pages/OperationalExcellencePage";
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +28,9 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/services" element={<Services />} />
         <Route path="/services/financial" element={<FinancialServicesPage />} />
+        <Route path="/services/recovery" element={<RecoveryCollectionsPage />} />
+        <Route path="/services/verification" element={<VerificationCompliancePage />} />
+        <Route path="/services/operational" element={<OperationalExcellencePage />} />
         <Route
           path="/services/data-verification"
           element={<DataVerificationPage />}

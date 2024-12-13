@@ -6,7 +6,7 @@ const FinancialFramework = () => {
 
   const sections = {
     fraud: {
-      title: "Enhanced Fraud Prevention",
+      title: "Fraud Management",
       icon: Shield,
       color: "from-[#2DD4BF] to-[#3B82F6]",
       shadowColor: "shadow-cyan-500/20",
@@ -15,19 +15,27 @@ const FinancialFramework = () => {
       items: [
         { title: "Customer Education", icon: Users, description: "Comprehensive training programs" },
         { title: "Advanced Analytics", icon: BarChart4, description: "AI-powered detection systems" },
-        { title: "Regulatory Adherence", icon: Scale, description: "Compliance management" }
+        { title: "Regulatory Adherence", icon: Scale, description: "Compliance management" },
+        { 
+          title: "Fraud Management Services", 
+          icon: AlertTriangle, 
+          description: "In today’s dynamic financial landscape, safeguarding your business from fraud has never been more critical. Our Fraud Management Services offer a robust framework to detect, prevent, and mitigate risks across various channels. Leveraging advanced technologies and expert insights, we ensure comprehensive fraud protection tailored to your needs. Key Features: Real-time monitoring of transactions and activities. AI-driven pattern recognition." 
+        }
       ]
     },
     calls: {
-      title: "Service Management",
+      title: "Key Features of our Call and Contact Centers",
       icon: Phone,
       color: "from-[#F472B6] to-[#9333EA]",
       shadowColor: "shadow-pink-500/20",
       ringColor: "group-hover:ring-pink-500/30",
       iconColor: "text-pink-500",
       items: [
-        { title: "Payment Hygiene Checks", icon: FileCheck, description: "Transaction verification" },
-        { title: "Support Services", icon: HeartHandshake, description: "24/7 assistance" }
+        { title: "Omnichannel Support", icon: HeartHandshake, description: "Integrated communication via phone, email, chat, social media, and SMS." },
+        { title: "CRM Integration", icon: FileCheck, description: "Seamless tracking of customer interactions for personalized service." },
+        { title: "Real-Time Analytics", icon: BarChart4, description: "Insights into customer behavior and operational efficiency." },
+        { title: "Multilingual Support", icon: Users, description: "Catering to diverse customer bases across regions." },
+        { title: "Automation", icon: RefreshCcw, description: "IVR systems and chatbots for routine queries." }
       ]
     },
     loans: {
@@ -43,32 +51,26 @@ const FinancialFramework = () => {
         { title: "Working Capital Loans", icon: CircleDollarSign, description: "Business operational funding" },
         { title: "Education Loans", icon: BookOpen, description: "Funding for education" },
         { title: "Gold Loans", icon: BadgeAlert, description: "Loans against gold" },
-        { title: "Overdraft Facility", icon: Wallet, description: "Flexible credit line" }
+        { title: "Overdraft Facility", icon: Wallet, description: "Flexible credit line" },
+        { title: "Banking Sector", icon: HeartHandshake, description: "Customer Service and Support, Collections, Loan and Credit Services, Lead Generation and Sales, Fraud Detection and Risk Management, Feedback and Surveys, Compliance and Notifications, Help Desk Services" },
+        { title: "Telecommunications Sector", icon: Phone, description: "Customer Support, Billing and Payments, Plan and Service Information, Retention and Win-Back Campaigns, Technical Support, Lead Generation and Upselling, Feedback Collection, Complaint Resolution" },
+        { title: "FMCG Sector", icon: ClipboardCheck, description: "Order Management, Product Support and Information, Complaint Management" }
       ]
     },
     bucket: {
-      title: "Bucket Types Handled",
+      title: "Delinquency Management",
       icon: ClipboardCheck,
       color: "from-[#34D399] to-[#059669]",
       shadowColor: "shadow-emerald-500/20",
       ringColor: "group-hover:ring-emerald-500/30",
       iconColor: "text-emerald-500",
       items: [
-        { title: "Bucket 1", icon: CircleDollarSign, description: "Pre-Due Date" },
-        { title: "Bucket 2", icon: CircleDollarSign, description: "Post-Due Date" },
-        { title: "NPA / Charge Off", icon: AlertTriangle, description: "Non-Performing Assets" }
-      ]
-    },
-    collection: {
-      title: "Call and Collect Services",
-      icon: RefreshCcw,
-      color: "from-[#818CF8] to-[#4F46E5]",
-      shadowColor: "shadow-indigo-500/20",
-      ringColor: "group-hover:ring-indigo-500/30",
-      iconColor: "text-indigo-500",
-      items: [
-        { title: "Dues Recovery", icon: RefreshCcw, description: "Systematic collection" },
-        { title: "Payment Hygiene Maintenance", icon: AlertTriangle, description: "Risk management" }
+        { title: "NPA Management", icon: AlertTriangle, description: "Write Off Pool Management (All Vintage including Skip Tracing)" },
+        { title: "Early Delinquency", icon: CircleDollarSign, description: "0-90DPD for Retail, 0-365 DPD for Rural Lending" },
+        { title: "Preemptive Calling", icon: FileCheck, description: "For all customers" },
+        { title: "Welcome Calling", icon: Users, description: "For all customers" },
+        { title: "Specialized Calling", icon: BarChart4, description: "For Microfinance" },
+        { title: "Hygiene Calling", icon: HeartHandshake, description: "With a specialized effort on fraud prevention and detection" }
       ]
     }
   };
@@ -192,6 +194,7 @@ const FinancialFramework = () => {
                opacity: 0,
                animation: 'fadeIn 1s ease-out forwards'
              }}>
+          <h1 className="text-5"></h1>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
             Financial Services Framework
           </h1>
@@ -222,3 +225,4 @@ const FinancialFramework = () => {
 };
 
 export default FinancialFramework;
+
