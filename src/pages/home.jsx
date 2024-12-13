@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Marque from "../components/home/marque";
 import Features from "../components/home/features";
-import FinancialFramework from "../components/home/FinancialFramework";
+//import FinancialFramework from "../components/home/FinancialFramework";
 import Industries from "../components/home/industries";
 
 const fadeIn = {
@@ -134,7 +134,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <FinancialFramework></FinancialFramework>
+        {/* <FinancialFramework></FinancialFramework> */}
       </motion.div>
  
      
